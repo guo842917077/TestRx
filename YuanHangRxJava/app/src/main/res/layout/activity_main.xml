@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    tools:context=".main.MainActivity">
+    <!-- 把AppBar中包裹的内容都作为 AppBar的一部分 app:layout_scrollFlags="scroll"
+    给toolbar加上该标识后 有控件滑动时，toolbar可以隐藏 要跟CoordinatorLayout配合使用 -->
+    <include layout="@layout/toolbar"></include>
+    <!-- 抽屉部分-->
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- 第一层为内容层 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"></LinearLayout>
+        <!--第二层为抽屉层 -->
+        <android.support.design.widget.NavigationView
+            android:id="@+id/navigation"
+            android:layout_width="@dimen/y400"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|start"
+            app:headerLayout="@layout/header_layout"
+            app:menu="@menu/meun_drawerlist" />
+
+    </android.support.v4.widget.DrawerLayout>
+</LinearLayout>
+
