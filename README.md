@@ -1,2 +1,3 @@
-# TestRx
-使用了Rxjava+Butterknife+mvp等知识的一个练习项目，项目的数据来源于公司的内网测试地址，并不能运行，但是目前的功能测试过绝对没有问题，希望大家能够指正代码中写的错误，不好的地方。
+### SmileApp客户端项目
+####一个展示笑话的app
+使用了Rxjava+Butterknife+mvp等知识的一个练习项目
