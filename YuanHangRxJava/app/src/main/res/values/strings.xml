@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">YuanHangRxJava</string>
-    <string name="open">open</string>
-    <string name="close">close</string>
-    <string name="text_photo_modify">图文上报</string>
-    <string name="video_modify">视频上报</string>
-    <string name="text_simple_modify">普通上报</string>
-</resources>
