@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
@@ -16,6 +17,7 @@ import com.tjpld.smileapp.R;
 import com.tjpld.smileapp.code.CodeFragment;
 import com.tjpld.smileapp.config.widget.FragmentViewPagerAdapter;
 import com.tjpld.smileapp.config.widget.MainViewPager;
+import com.tjpld.smileapp.config.widget.TitlePop;
 import com.tjpld.smileapp.setting.SettingFragment;
 import com.tjpld.smileapp.smile.view.SmileFragment;
 
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public ImageButton mImgBtnLeft;
     @Bind(R.id.toolbar_title)
     public TextView mToolTitle;
+    @Bind(R.id.img_toolbar_right)
+    public ImageButton mImageBtnRight;
     @Bind(R.id.radio_smile)
     public RadioButton radio_smile;
     @Bind(R.id.radio_code)
@@ -45,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public MainViewPager viewpager_main;
     public List<Fragment> list_fragment;
     public FragmentViewPagerAdapter mFragmentAdapter;
+    private TitlePop mTitlePop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initComponent();
         initEvent();
         mImgBtnLeft.setOnClickListener(this);//退出事件
+        mImageBtnRight.setOnClickListener(this);
     }
 
     private void initEvent() {
@@ -128,12 +134,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         list_fragment.add(new SettingFragment());
         mFragmentAdapter = new FragmentViewPagerAdapter(getSupportFragmentManager(), viewpager_main, list_fragment);
         viewpager_main.setAdapter(mFragmentAdapter);
-
+        mTitlePop = new TitlePop(this, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        mTitlePop.addActionItem(this, R.string.submit_smile_content, R.drawable.img_send);
     }
+
     //设置标题栏
     private void initActionBar() {
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle( R.string.action_title);
+        getSupportActionBar().setTitle(R.string.action_title);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mImgBtnLeft.setBackgroundResource(R.drawable.ic_function);
         mImgBtnLeft.setVisibility(View.VISIBLE);
@@ -141,6 +149,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+          switch (R.id.img_toolbar_right){
+              case R.id.img_toolbar_right:
+                  mTitlePop.show(mImageBtnRight);
+                  break;
+          }
+    }
 
+    @Override
+    public void overridePendingTransition(int enterAnim, int exitAnim) {
+        this.overridePendingTransition(R.anim.sild_out_top, R.anim.sild_out_top);
     }
 }

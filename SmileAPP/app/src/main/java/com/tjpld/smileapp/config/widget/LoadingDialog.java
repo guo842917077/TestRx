@@ -29,43 +29,41 @@ public class LoadingDialog extends ProgressDialog {
     private Context mContext;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private boolean outSideCancelable = false;
-
-    public LoadingDialog(Context context, Builder builder,int theme) {
-        super(context,theme);
+    public LoadingDialog(Context context, Builder builder, int theme) {
+        this(context);
         this.mContext = context;
         this.mDefLoadingText = builder.mDefLoadingText;
         this.mDefLoadingFailure = builder.mDefLoadingFailure;
         this.mDefSuccessBitmap = builder.mSuccessBitmap;
         this.mDefFailureBitmap = builder.mFailureBitmap;
         this.outSideCancelable = builder.outCancel;
-        Log.e("tag","controller");
+
     }
 
     public LoadingDialog(Context context) {
-        super(context);
-
+       super(context);
+       Log.e("Tag","LodingDialog--->1");
     }
 
     public LoadingDialog(Context context, int theme) {
-        super(context, theme);
-        Log.e("Tag", "builder3");
+        this(context);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_loadingdailog);
-        Log.e("Tag","dialog");
+        Log.e("Tag", "dialog");
         mProgressBar = (ProgressBar) findViewById(R.id.progressbar_dialog);
         mTextView = (TextView) findViewById(R.id.progresstitle_dialog);
         mImageViewSucceed = (ImageView) findViewById(R.id.imageView_loadsuccess);
         mProgressBar.setIndeterminate(true);
     }
 
-    public void show() {
-        mProgressBar.setVisibility(View.GONE);
+    public void showDialog() {
+     /*   mProgressBar.setVisibility(View.GONE);
         mImageViewSucceed.setVisibility(View.VISIBLE);
-        mTextView.setText(mDefLoadingText);
+        mTextView.setText(mDefLoadingText);*/
         show();
     }
 
@@ -101,14 +99,13 @@ public class LoadingDialog extends ProgressDialog {
         cancel();
     }
 
-   public static class Builder {
+    public static class Builder {
         private String mDefLoadingText = "正在加载，请稍后...";
         private String mDefLoadingFailure = "加载失败...";
         private Context context;
         private Bitmap mSuccessBitmap;
         private Bitmap mFailureBitmap;
         private boolean outCancel = false;
-
         public Builder(Context context) {
             this.context = context;
         }
@@ -152,12 +149,11 @@ public class LoadingDialog extends ProgressDialog {
 
         public LoadingDialog build() {
             //final LoadingDialog dialog = new LoadingDialog(context,this,R.style.LoadingDialog);
-            final LoadingDialog dialog = new LoadingDialog(context,R.style.LoadingDialog);
-            if (outCancel){
+            final LoadingDialog dialog = new LoadingDialog(context, this, R.style.LoadingDialog);
+            if (outCancel) {
                 dialog.setCanceledOnTouchOutside(outCancel);
             }
-            Log.e("Tag","builder2");
-            //AlertDialog
+            Log.e("Tag", "builder2");
             return dialog;
         }
     }

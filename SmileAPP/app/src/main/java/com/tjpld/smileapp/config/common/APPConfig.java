@@ -7,7 +7,7 @@ public class APPConfig {
     /**
      * 网络地址
      */
-    public static String BaseUrl = "http://192.168.2.107:8080/Test/";
+    public static String BaseUrl = "http://192.168.17.136:8080/Test/";
     /**
      * 共享文件
      */

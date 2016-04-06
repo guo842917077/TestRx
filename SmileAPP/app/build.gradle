@@ -1,17 +1,21 @@
+//Android团队提供的默认插件
 apply plugin: 'com.android.application'
-
+//Android所有属性
 android {
+    //编译版本构建的版本号  这两个是必须的
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
-
+    //该APP的核心  对manifest文件进行了重写
     defaultConfig {
         applicationId "com.tjpld.smileapp"
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     buildTypes {
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -42,6 +46,6 @@ dependencies {
     compile 'com.android.support:support-v4:23.2.0'
     //日历控件
     compile 'com.github.traex.calendarlistview:library:1.2.3'
-    //单元测试框架Robolectric
-    compile 'org.robolectric:robolectric:3.0'
+    //单元测试框架Robolectric 框架很重 在编译时注释掉
+    //compile 'org.robolectric:robolectric:3.0'
 }

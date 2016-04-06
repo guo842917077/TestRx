@@ -13,4 +13,6 @@
     <color name="actionPink">#ff3168</color>
     <color name="txtGray">#898989</color>
     <color name="txtBlack">#232323</color>
+    <color name="LightBlue">#40c4ff</color>
+    <!--  <color name="ActionColor">#184183</color>-->
 </resources>
