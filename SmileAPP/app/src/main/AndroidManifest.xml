@@ -14,15 +14,15 @@
         <activity
             android:name=".login.view.LoginActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.view.MainActivity">
-
-        </activity>
+        <activity android:name=".main.view.MainActivity"></activity>
+        <activity android:name=".smile.view.SubmitSmileActivity"></activity>
     </application>
+
 </manifest>

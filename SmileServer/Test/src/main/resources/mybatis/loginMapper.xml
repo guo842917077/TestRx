@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="com.tjpld.dao.ILoginDao">
+
+	<select id="findUser" resultType="int">
+		select count(*) from login where username=#{username} and password=#{password}
+	</select>
+	<select id="userCount" resultType="int" parameterType="int">
+		select count(*) from login
+	</select>
+	
+</mapper> 

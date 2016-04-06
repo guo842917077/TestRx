@@ -82,7 +82,6 @@ public class TitlePop extends PopupWindow implements View.OnClickListener {
                 if (mItemOnClickListener != null) {
                     mItemOnClickListener.onItemClick(i);
                 }
-                mPopDismissListener.onPopDismiss();
                 dismiss();
             }
         });

@@ -21,4 +21,8 @@ public interface SmileApi {
     //获取笑话内容的接口
     @GET("smile.jsp")
     Observable<ResultModel<List<SmileContentModel>>> smileContent();
+
+    //上传笑话的接口
+    @GET("insertsmile.jsp")
+    Observable<ResultModel<String>> submitSmile(@Query("reportname")String reportname,@Query("content")String content,@Query("reporttime")String reporttime);
 }
